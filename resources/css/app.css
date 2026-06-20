@@ -1,0 +1,124 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../views/**/*.blade.php';
+
+@theme {
+    --font-sans: 'Space Grotesk', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+    --color-ink-50: #f8fafc;
+    --color-ink-100: #e2e8f0;
+    --color-ink-500: #64748b;
+    --color-ink-700: #334155;
+    --color-ink-900: #0f172a;
+    --color-accent: #f97316;
+    --color-accent-soft: #fed7aa;
+    --color-brand: #0b3b2e;
+    --color-panel: rgba(255, 255, 255, 0.78);
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-slate-950 text-slate-100;
+        background-image:
+            radial-gradient(circle at top left, rgba(249, 115, 22, 0.18), transparent 30%),
+            radial-gradient(circle at top right, rgba(14, 165, 233, 0.12), transparent 25%),
+            linear-gradient(180deg, #020617 0%, #0f172a 100%);
+    }
+
+    body.light {
+        @apply bg-slate-50 text-slate-900;
+        background-image:
+            radial-gradient(circle at top left, rgba(249, 115, 22, 0.15), transparent 32%),
+            radial-gradient(circle at top right, rgba(15, 118, 110, 0.14), transparent 25%),
+            linear-gradient(180deg, #fff7ed 0%, #f8fafc 100%);
+    }
+
+    h1, h2, h3, h4 {
+        @apply tracking-tight;
+    }
+}
+
+@layer components {
+    .glass-panel {
+        @apply rounded-3xl border border-white/10 bg-white/8 shadow-2xl backdrop-blur-xl;
+    }
+
+    body.light .glass-panel {
+        @apply border-slate-200/80 bg-white/85;
+    }
+
+    .section-shell {
+        @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+    }
+
+    .eyebrow {
+        @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/8 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-orange-200;
+    }
+
+    body.light .eyebrow {
+        @apply border-orange-200 bg-orange-50 text-orange-700;
+    }
+
+    .btn-primary {
+        @apply inline-flex items-center justify-center rounded-2xl bg-orange-500 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-orange-400;
+    }
+
+    .btn-secondary {
+        @apply inline-flex items-center justify-center rounded-2xl border border-white/15 px-5 py-3 text-sm font-semibold text-white/90 transition hover:-translate-y-0.5 hover:bg-white/10;
+    }
+
+    body.light .btn-secondary {
+        @apply border-slate-200 text-slate-700 hover:bg-slate-100;
+    }
+
+    .input-shell {
+        @apply w-full rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3 text-sm text-white outline-none transition focus:border-orange-400 focus:ring-2 focus:ring-orange-400/30;
+    }
+
+    body.light .input-shell {
+        @apply border-slate-200 bg-white text-slate-900;
+    }
+
+    .card-hover {
+        @apply transition duration-300 hover:-translate-y-1 hover:shadow-orange-500/10;
+    }
+
+    .skeleton {
+        @apply relative overflow-hidden rounded-2xl bg-white/8;
+    }
+
+    .skeleton::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        transform: translateX(-100%);
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+        animation: shimmer 1.5s infinite;
+    }
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes float-up {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reveal {
+    animation: float-up 0.7s ease both;
+}
