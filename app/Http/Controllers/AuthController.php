@@ -28,8 +28,17 @@ class AuthController extends Controller
     {
         $credentials = $request->validated();
 
+        // 1. Check if user exists by email
+        $userExists = User::where('email', $credentials['email'])->exists();
+        if (!$userExists) {
+            return redirect()->route('register')
+                ->withInput($request->only('email'))
+                ->with('error', 'This account does not exist. Please register first.');
+        }
+
+        // 2. Attempt login
         if (! Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['password']], (bool) ($credentials['remember'] ?? false))) {
-            throw ValidationException::withMessages(['email' => 'These credentials do not match our records.']);
+            throw ValidationException::withMessages(['email' => 'The password you entered is incorrect.']);
         }
 
         $request->session()->regenerate();

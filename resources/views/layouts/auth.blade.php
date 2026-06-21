@@ -12,6 +12,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body class="min-h-screen">
+    <div class="fixed right-4 top-4 z-50 w-full max-w-sm" data-toast-root></div>
+    @if (session('success'))
+        <span data-flash="{{ session('success') }}" class="hidden"></span>
+    @endif
+    @if (session('error'))
+        <span data-flash="{{ session('error') }}" data-type="error" class="hidden"></span>
+    @endif
+    @if (session('info'))
+        <span data-flash="{{ session('info') }}" data-type="info" class="hidden"></span>
+    @endif
+
     <div class="section-shell flex min-h-screen items-center justify-center py-10">
         <div class="grid w-full max-w-6xl gap-8 lg:grid-cols-[1.2fr_0.8fr]">
             <div class="glass-panel reveal hidden p-10 lg:block">
