@@ -16,7 +16,7 @@ class CommentFactory extends Factory
         return [
             'blog_id' => Blog::factory(),
             'user_id' => User::factory(),
-            'body' => fake()->paragraph(),
+            'body' => fake()->realText(100),
         ];
     }
 }

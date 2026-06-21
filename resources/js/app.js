@@ -110,3 +110,86 @@ document.addEventListener('change', async (event) => {
         showToast('Upload failed. Please retry.', 'error');
     }
 });
+
+// AI Summary typing animation
+document.addEventListener('DOMContentLoaded', () => {
+    const accordion = document.querySelector('.summary-accordion');
+    if (!accordion) return;
+
+    const contentDiv = accordion.querySelector('.summary-content');
+    if (!contentDiv) return;
+
+    const rawSummary = contentDiv.dataset.summary;
+    if (!rawSummary) return;
+
+    let hasTyped = false;
+
+    // Clear initial SSR content before visual display, so it starts blank when opened
+    contentDiv.innerHTML = '';
+
+    accordion.addEventListener('toggle', () => {
+        if (accordion.open && !hasTyped) {
+            hasTyped = true;
+            typeSummary(contentDiv, rawSummary);
+        }
+    });
+});
+
+function typeSummary(container, text) {
+    container.innerHTML = '';
+
+    // Split raw bulleted text into lines
+    const lines = text.split('\n')
+        .map(line => line.trim())
+        .filter(line => line.startsWith('-') || line.startsWith('*'));
+
+    if (lines.length === 0) {
+        typeText(container, text, 10);
+        return;
+    }
+
+    const ul = document.createElement('ul');
+    ul.className = 'list-disc pl-5 space-y-2.5';
+    container.appendChild(ul);
+
+    let lineIndex = 0;
+
+    function typeNextLine() {
+        if (lineIndex >= lines.length) return;
+
+        const li = document.createElement('li');
+        li.className = 'marker:text-orange-500';
+        ul.appendChild(li);
+
+        // Remove leading dash/asterisk and whitespace
+        const rawLine = lines[lineIndex].replace(/^[-*]\s*/, '');
+        let charIndex = 0;
+
+        function typeChar() {
+            if (charIndex < rawLine.length) {
+                li.innerHTML += rawLine.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeChar, 8); // fast, responsive typing speed
+            } else {
+                lineIndex++;
+                typeNextLine();
+            }
+        }
+
+        typeChar();
+    }
+
+    typeNextLine();
+}
+
+function typeText(container, text, speed) {
+    let charIndex = 0;
+    function typeChar() {
+        if (charIndex < text.length) {
+            container.innerHTML += text.charAt(charIndex);
+            charIndex++;
+            setTimeout(typeChar, speed);
+        }
+    }
+    typeChar();
+}

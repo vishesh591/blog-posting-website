@@ -5,7 +5,8 @@
 @source '../views/**/*.blade.php';
 
 @theme {
-    --font-sans: 'Space Grotesk', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
     --color-ink-50: #f8fafc;
     --color-ink-100: #e2e8f0;
     --color-ink-500: #64748b;
@@ -33,13 +34,47 @@
     body.light {
         @apply bg-slate-50 text-slate-900;
         background-image:
-            radial-gradient(circle at top left, rgba(249, 115, 22, 0.15), transparent 32%),
-            radial-gradient(circle at top right, rgba(15, 118, 110, 0.14), transparent 25%),
-            linear-gradient(180deg, #fff7ed 0%, #f8fafc 100%);
+            radial-gradient(circle at top left, rgba(249, 115, 22, 0.12), transparent 32%),
+            radial-gradient(circle at top right, rgba(15, 118, 110, 0.1), transparent 25%),
+            linear-gradient(180deg, #fffcf9 0%, #fcfdfd 100%);
     }
 
     h1, h2, h3, h4 {
+        font-family: var(--font-serif);
         @apply tracking-tight;
+    }
+
+    /* Global Light Theme Contrast Fixes */
+    body.light .text-slate-400 {
+        color: #475569 !important;
+    }
+    body.light .text-slate-300 {
+        color: #334155 !important;
+    }
+    body.light .text-slate-200 {
+        color: #1e293b !important;
+    }
+    body.light .text-slate-100 {
+        color: #0f172a !important;
+    }
+    body.light .border-white\/10 {
+        border-color: rgba(15, 23, 42, 0.08) !important;
+    }
+    body.light .border-white\/15 {
+        border-color: rgba(15, 23, 42, 0.12) !important;
+    }
+    body.light .bg-white\/6 {
+        background-color: rgba(15, 23, 42, 0.04) !important;
+    }
+    body.light .bg-white\/8 {
+        background-color: rgba(15, 23, 42, 0.05) !important;
+    }
+    body.light .input-shell::placeholder {
+        color: #64748b !important;
+    }
+    body.light #hero-search-results a:hover,
+    body.light [id*="search-results"] a:hover {
+        background-color: rgba(15, 23, 42, 0.05) !important;
     }
 }
 
@@ -76,6 +111,85 @@
         @apply border-slate-200 text-slate-700 hover:bg-slate-100;
     }
 
+    .btn-theme-toggle {
+        @apply inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/15 text-white/90 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/10 hover:text-white;
+    }
+
+    body.light .btn-theme-toggle {
+        @apply border-slate-200 text-slate-700 hover:bg-slate-100 hover:text-slate-900;
+    }
+
+    .btn-theme-toggle .sun-icon {
+        display: block;
+    }
+    .btn-theme-toggle .moon-icon {
+        display: none;
+    }
+
+    body.light .btn-theme-toggle .sun-icon {
+        display: none;
+    }
+    body.light .btn-theme-toggle .moon-icon {
+        display: block;
+    }
+
+    /* Layout Theme Overrides */
+    header, aside {
+        @apply transition-colors duration-300;
+    }
+
+    body.light header {
+        background-color: rgba(255, 255, 255, 0.8) !important;
+        border-color: rgba(226, 232, 240, 0.8) !important;
+        color: #0f172a !important;
+    }
+
+    body.light aside {
+        background-color: rgba(255, 255, 255, 0.8) !important;
+        border-color: rgba(226, 232, 240, 0.8) !important;
+        color: #0f172a !important;
+    }
+
+    /* Header Navigation Links */
+    header nav a {
+        @apply text-slate-300 hover:text-white transition-colors duration-200;
+    }
+
+    body.light header nav a {
+        @apply text-slate-600 hover:text-slate-900;
+    }
+
+    /* Sidebar Links */
+    aside a {
+        @apply text-slate-300 transition-all duration-200;
+    }
+
+    aside a:hover {
+        @apply bg-white/10 text-white;
+    }
+
+    body.light aside a {
+        @apply text-slate-600;
+    }
+
+    body.light aside a:hover {
+        @apply bg-slate-100 text-slate-900;
+    }
+
+    /* Dashboard Header Welcomer text */
+    body.light header .text-slate-400 {
+        @apply text-slate-500;
+    }
+
+    /* Footer Light Contrast */
+    body.light footer {
+        @apply border-slate-200/80 text-slate-600;
+    }
+
+    body.light footer .text-white {
+        @apply text-slate-900;
+    }
+
     .input-shell {
         @apply w-full rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3 text-sm text-white outline-none transition focus:border-orange-400 focus:ring-2 focus:ring-orange-400/30;
     }
@@ -88,10 +202,6 @@
         @apply transition duration-300 hover:-translate-y-1 hover:shadow-orange-500/10;
     }
 
-    .skeleton {
-        @apply relative overflow-hidden rounded-2xl bg-white/8;
-    }
-
     .skeleton::after {
         content: '';
         position: absolute;
@@ -99,6 +209,36 @@
         transform: translateX(-100%);
         background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
         animation: shimmer 1.5s infinite;
+    }
+
+    /* AI Summary Accordion styles */
+    .summary-content ul {
+        @apply list-disc pl-5 space-y-2.5;
+    }
+    .summary-content li::marker {
+        @apply text-orange-500;
+    }
+    .skeleton-line {
+        @apply animate-pulse bg-white/8;
+    }
+
+    body.light details {
+        border-color: rgba(226, 232, 240, 0.8) !important;
+        background-color: rgba(255, 255, 255, 0.8) !important;
+    }
+    body.light details summary {
+        color: #0f172a !important;
+    }
+    body.light details summary svg {
+        color: #f97316 !important;
+    }
+    body.light details div {
+        border-color: rgba(226, 232, 240, 0.4) !important;
+        background-color: rgba(248, 250, 252, 0.5) !important;
+        color: #334155 !important;
+    }
+    body.light .skeleton-line {
+        background-color: rgba(15, 23, 42, 0.08) !important;
     }
 }
 

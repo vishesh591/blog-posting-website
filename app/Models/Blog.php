@@ -21,6 +21,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
     'slug',
     'excerpt',
     'body',
+    'summary',
     'seo_title',
     'seo_description',
     'canonical_url',

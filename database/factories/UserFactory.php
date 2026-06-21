@@ -29,7 +29,7 @@ class UserFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'role' => fake()->randomElement(['author', 'reader']),
             'headline' => fake()->jobTitle(),
-            'bio' => fake()->paragraph(3),
+            'bio' => fake()->realText(150),
             'social_links' => [
                 'twitter' => fake()->url(),
                 'linkedin' => fake()->url(),

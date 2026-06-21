@@ -15,7 +15,7 @@
         <div class="glass-panel p-6">
             <div class="mb-4 flex items-center justify-between">
                 <p class="text-sm text-slate-400">Search articles</p>
-                <span class="rounded-full bg-emerald-400/15 px-3 py-1 text-xs text-emerald-300">Live AJAX</span>
+                <span class="rounded-full bg-emerald-400/15 px-3 py-1 text-xs text-emerald-300">Live</span>
             </div>
             <div class="relative">
                 <input data-search-input data-target="#hero-search-results" class="input-shell" placeholder="Search by title, tag, category...">

@@ -18,24 +18,44 @@ class BlogService
     {
         $payload = $this->hydratePayload($data);
 
-        Cache::tags(['blogs'])->flush();
+        $this->clearCache();
 
-        return $this->blogs->create($payload);
+        $blog = $this->blogs->create($payload);
+
+        \App\Jobs\GenerateBlogSummaryJob::dispatch($blog);
+
+        return $blog;
     }
 
     public function update(Blog $blog, array $data): Blog
     {
         $payload = $this->hydratePayload($data, $blog);
 
-        Cache::tags(['blogs'])->flush();
+        $this->clearCache();
 
-        return $this->blogs->update($blog, $payload);
+        $oldBody = $blog->body;
+        $updatedBlog = $this->blogs->update($blog, $payload);
+
+        if ($oldBody !== $updatedBlog->body || empty($updatedBlog->summary)) {
+            \App\Jobs\GenerateBlogSummaryJob::dispatch($updatedBlog);
+        }
+
+        return $updatedBlog;
     }
 
     public function delete(Blog $blog): void
     {
-        Cache::tags(['blogs'])->flush();
+        $this->clearCache();
         $this->blogs->delete($blog);
+    }
+
+    private function clearCache(): void
+    {
+        try {
+            Cache::tags(['blogs'])->flush();
+        } catch (\BadMethodCallException $e) {
+            Cache::flush();
+        }
     }
 
     private function hydratePayload(array $data, ?Blog $blog = null): array
