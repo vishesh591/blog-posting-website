@@ -25,10 +25,12 @@
             </a>
             <div class="space-y-2 text-sm">
                 <a href="{{ route('dashboard.index') }}" class="block rounded-2xl px-4 py-3 hover:bg-white/10">Overview</a>
-                <a href="{{ route('dashboard.blogs.index') }}" class="block rounded-2xl px-4 py-3 hover:bg-white/10">Blogs</a>
-                <a href="{{ route('dashboard.categories.index') }}" class="block rounded-2xl px-4 py-3 hover:bg-white/10">Categories</a>
-                <a href="{{ route('dashboard.tags.index') }}" class="block rounded-2xl px-4 py-3 hover:bg-white/10">Tags</a>
-                <a href="{{ route('dashboard.media.index') }}" class="block rounded-2xl px-4 py-3 hover:bg-white/10">Media Library</a>
+                @if (in_array(auth()->user()->role, ['admin', 'author']))
+                    <a href="{{ route('dashboard.blogs.index') }}" class="block rounded-2xl px-4 py-3 hover:bg-white/10">Blogs</a>
+                    <a href="{{ route('dashboard.categories.index') }}" class="block rounded-2xl px-4 py-3 hover:bg-white/10">Categories</a>
+                    <a href="{{ route('dashboard.tags.index') }}" class="block rounded-2xl px-4 py-3 hover:bg-white/10">Tags</a>
+                    <a href="{{ route('dashboard.media.index') }}" class="block rounded-2xl px-4 py-3 hover:bg-white/10">Media Library</a>
+                @endif
                 <a href="{{ route('profile.edit') }}" class="block rounded-2xl px-4 py-3 hover:bg-white/10">Profile</a>
                 <a href="{{ route('dashboard.notifications') }}" class="block rounded-2xl px-4 py-3 hover:bg-white/10">Notifications</a>
             </div>

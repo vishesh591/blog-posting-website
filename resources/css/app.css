@@ -198,6 +198,13 @@
         @apply border-slate-200 bg-white text-slate-900;
     }
 
+    /* Hide Webkit Native Datepicker Indicator (since we use a custom indicator button) */
+    input[type="datetime-local"]::-webkit-calendar-picker-indicator,
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        display: none !important;
+        -webkit-appearance: none;
+    }
+
     .card-hover {
         @apply transition duration-300 hover:-translate-y-1 hover:shadow-orange-500/10;
     }

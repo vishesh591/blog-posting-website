@@ -60,13 +60,23 @@
         <article class="glass-panel mt-10 space-y-5 p-8 leading-8 text-slate-200">{!! $blog->body !!}</article>
         <div class="mt-12">
             <h2 class="text-2xl font-bold">Comments</h2>
-            @auth
-                <form action="{{ route('comments.store', $blog) }}" method="POST" class="glass-panel mt-5 space-y-4 p-6">
-                    @csrf
-                    <textarea name="body" rows="4" class="input-shell" placeholder="Join the conversation"></textarea>
-                    <button class="btn-primary">Post comment</button>
-                </form>
-            @endauth
+            @if ($blog->allow_comments)
+                @auth
+                    <form action="{{ route('comments.store', $blog) }}" method="POST" class="glass-panel mt-5 space-y-4 p-6">
+                        @csrf
+                        <textarea name="body" rows="4" class="input-shell" placeholder="Join the conversation..."></textarea>
+                        <button class="btn-primary">Post comment</button>
+                    </form>
+                @else
+                    <div class="glass-panel mt-5 p-6 text-center text-sm text-slate-400">
+                        Please <a href="{{ route('login') }}" class="text-orange-400 hover:underline font-semibold">sign in</a> to join the conversation and start the discussion.
+                    </div>
+                @endauth
+            @else
+                <div class="glass-panel mt-5 p-6 text-center text-sm text-slate-400">
+                    Comments are closed for this story.
+                </div>
+            @endif
             <div class="mt-6 space-y-4">
                 @forelse ($blog->comments as $comment)
                     <div class="glass-panel p-5">

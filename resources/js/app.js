@@ -193,3 +193,18 @@ function typeText(container, text, speed) {
     }
     typeChar();
 }
+
+// Open native date/time picker when clicking anywhere on the input field
+document.addEventListener('click', (event) => {
+    const picker = event.target.closest('input[type="datetime-local"], input[type="date"]');
+    if (picker) {
+        if ('showPicker' in HTMLInputElement.prototype) {
+            event.preventDefault();
+            try {
+                picker.showPicker();
+            } catch (e) {
+                picker.focus();
+            }
+        }
+    }
+});

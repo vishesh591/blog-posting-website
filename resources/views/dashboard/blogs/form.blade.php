@@ -27,7 +27,14 @@
                         <option value="{{ $status }}" @selected(old('status', $blog->status ?: 'draft') === $status)>{{ ucfirst($status) }}</option>
                     @endforeach
                 </select>
-                <input name="scheduled_for" type="datetime-local" value="{{ old('scheduled_for', optional($blog->scheduled_for)->format('Y-m-d\TH:i')) }}" class="input-shell">
+                <div class="relative flex items-center w-full">
+                    <input id="scheduled_for" name="scheduled_for" type="datetime-local" value="{{ old('scheduled_for', optional($blog->scheduled_for)->format('Y-m-d\TH:i')) }}" class="input-shell pr-10">
+                    <button type="button" class="absolute right-3 text-slate-400 hover:text-orange-400 transition-colors focus:outline-none" onclick="try { document.getElementById('scheduled_for').showPicker() } catch(e) {}">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                    </button>
+                </div>
                 <select name="category_id" class="input-shell">
                     <option value="">Select category</option>
                     @foreach ($categories as $category)
