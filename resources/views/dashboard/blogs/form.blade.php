@@ -8,7 +8,7 @@
     @endif
 </div>
 
-<form action="{{ $blog->exists ? route('dashboard.blogs.update', $blog) : route('dashboard.blogs.store') }}" method="POST" class="mt-8 grid gap-8 xl:grid-cols-[1.2fr_0.8fr]">
+<form action="{{ $blog->exists ? route('dashboard.blogs.update', $blog) : route('dashboard.blogs.store') }}" method="POST" class="mt-6 grid gap-6 xl:grid-cols-[1.2fr_0.8fr]">
     @csrf
     @if ($blog->exists)
         @method('PUT')

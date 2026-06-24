@@ -81,6 +81,17 @@
 @layer components {
     .glass-panel {
         @apply rounded-3xl border border-white/10 bg-white/8 shadow-2xl backdrop-blur-xl;
+        padding: 1rem !important;
+    }
+    @media (min-width: 640px) {
+        .glass-panel {
+            padding: 1.25rem !important;
+        }
+    }
+    @media (min-width: 768px) {
+        .glass-panel {
+            padding: 1.5rem !important;
+        }
     }
 
     body.light .glass-panel {
@@ -160,20 +171,35 @@
     }
 
     /* Sidebar Links */
-    aside a {
+    aside a, #mobile-drawer a {
         @apply text-slate-300 transition-all duration-200;
     }
 
-    aside a:hover {
+    aside a:hover, #mobile-drawer a:hover {
         @apply bg-white/10 text-white;
     }
 
-    body.light aside a {
+    body.light aside a, body.light #mobile-drawer a {
         @apply text-slate-600;
     }
 
-    body.light aside a:hover {
+    body.light aside a:hover, body.light #mobile-drawer a:hover {
         @apply bg-slate-100 text-slate-900;
+    }
+
+    /* Active Sidebar Links Highlight (Premium styling) */
+    .active-sidebar-link {
+        background-color: rgba(249, 115, 22, 0.15) !important;
+        border-left: 4px solid #f97316 !important;
+        border-radius: 0 1rem 1rem 0 !important;
+        color: #f97316 !important;
+        font-weight: 600 !important;
+    }
+
+    body.light .active-sidebar-link {
+        background-color: rgba(249, 115, 22, 0.1) !important;
+        border-left: 4px solid #f97316 !important;
+        color: #ea580c !important;
     }
 
     /* Dashboard Header Welcomer text */
@@ -206,7 +232,36 @@
     }
 
     .card-hover {
-        @apply transition duration-300 hover:-translate-y-1 hover:shadow-orange-500/10;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card-hover:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px -5px rgba(249, 115, 22, 0.15), 0 8px 10px -6px rgba(249, 115, 22, 0.15);
+        border-color: rgba(249, 115, 22, 0.3) !important;
+    }
+
+    body.light .card-hover:hover {
+        box-shadow: 0 10px 25px -5px rgba(234, 88, 12, 0.1), 0 8px 10px -6px rgba(234, 88, 12, 0.1);
+        border-color: rgba(234, 88, 12, 0.25) !important;
+    }
+
+    /* Heading Text Gradients (Premium aesthetics) */
+    .heading-gradient {
+        background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+        text-fill-color: transparent !important;
+        display: inline-block;
+    }
+
+    body.light .heading-gradient {
+        background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+        text-fill-color: transparent !important;
     }
 
     .skeleton::after {

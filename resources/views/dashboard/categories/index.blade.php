@@ -1,9 +1,9 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<div class="grid gap-8 xl:grid-cols-[0.7fr_1.3fr]">
+<div class="grid gap-6 xl:grid-cols-[0.7fr_1.3fr]">
     <div class="glass-panel p-6">
-        <h1 class="text-3xl font-bold">Categories</h1>
+        <h1 class="text-3xl font-bold heading-gradient">Categories</h1>
         <form method="POST" action="{{ route('dashboard.categories.store') }}" class="mt-6 space-y-4">
             @csrf
             <input name="name" class="input-shell" placeholder="Category name">

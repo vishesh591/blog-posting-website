@@ -8,10 +8,10 @@
     <x-stat-card label="Draft blogs" :value="$stats['draft_blogs']" />
 </div>
 
-<div class="mt-8 grid gap-8 xl:grid-cols-[1.2fr_0.8fr]">
+<div class="mt-6 grid gap-6 xl:grid-cols-[1.2fr_0.8fr]">
     <div class="glass-panel p-6">
         <div class="mb-5 flex items-center justify-between">
-            <h2 class="text-2xl font-bold">Most viewed blogs</h2>
+            <h2 class="text-2xl font-bold heading-gradient">Most viewed blogs</h2>
             @if (in_array(auth()->user()->role, ['admin', 'author']))
                 <a href="{{ route('dashboard.blogs.index') }}" class="text-sm text-orange-300">Manage blogs</a>
             @endif
@@ -36,7 +36,7 @@
         </div>
     </div>
     <div class="glass-panel p-6">
-        <h2 class="text-2xl font-bold">Recent activity</h2>
+        <h2 class="text-2xl font-bold heading-gradient">Recent activity</h2>
         <div class="mt-5 space-y-4">
             @foreach ($stats['recent_activities'] as $activity)
                 @if (is_array($activity) || is_object($activity))

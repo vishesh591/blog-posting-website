@@ -1,9 +1,9 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<div class="grid gap-8 xl:grid-cols-2">
+<div class="grid gap-6 xl:grid-cols-2">
     <div class="glass-panel p-6">
-        <h1 class="text-3xl font-bold">Profile settings</h1>
+        <h1 class="text-3xl font-bold heading-gradient">Profile settings</h1>
         <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data" class="mt-6 space-y-4">
             @csrf
             @method('PUT')
@@ -18,7 +18,7 @@
         </form>
     </div>
     <div class="glass-panel p-6">
-        <h2 class="text-3xl font-bold">Change password</h2>
+        <h2 class="text-3xl font-bold heading-gradient">Change password</h2>
         <form action="{{ route('profile.password') }}" method="POST" class="mt-6 space-y-4">
             @csrf
             @method('PUT')

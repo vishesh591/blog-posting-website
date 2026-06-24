@@ -50,12 +50,33 @@
                     </svg>
                 </button>
                 @auth
-                    <a href="{{ route('dashboard.index') }}" class="btn-secondary">Dashboard</a>
+                    <a href="{{ route('dashboard.index') }}" class="hidden btn-secondary md:inline-flex">Dashboard</a>
                 @else
-                    <a href="{{ route('login') }}" class="btn-secondary">Sign in</a>
-                    <a href="{{ route('register') }}" class="btn-primary">Get started</a>
+                    <a href="{{ route('login') }}" class="hidden btn-secondary md:inline-flex">Sign in</a>
+                    <a href="{{ route('register') }}" class="hidden btn-primary md:inline-flex">Get started</a>
                 @endauth
+                <button id="mobile-menu-toggle" class="btn-theme-toggle md:hidden" aria-label="Open menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+                        <line x1="4" x2="20" y1="12" y2="12"></line>
+                        <line x1="4" x2="20" y1="6" y2="6"></line>
+                        <line x1="4" x2="20" y1="18" y2="18"></line>
+                    </svg>
+                </button>
             </div>
+        </div>
+        <!-- Mobile Dropdown Navigation Menu -->
+        <div id="mobile-menu" class="hidden border-t border-white/10 bg-slate-950 px-4 py-4 space-y-2 md:hidden">
+            <a href="{{ route('blogs.index') }}" class="block text-sm text-slate-300 hover:text-white py-2 transition-colors">Stories</a>
+            <a href="{{ route('about') }}" class="block text-sm text-slate-300 hover:text-white py-2 transition-colors">About</a>
+            <a href="{{ route('contact') }}" class="block text-sm text-slate-300 hover:text-white py-2 transition-colors">Contact</a>
+            <a href="{{ route('search.index') }}" class="block text-sm text-slate-300 hover:text-white py-2 transition-colors">Search</a>
+            <div class="border-t border-white/10 my-2"></div>
+            @auth
+                <a href="{{ route('dashboard.index') }}" class="block text-sm text-orange-400 hover:text-orange-300 py-2 font-semibold transition-colors">Dashboard</a>
+            @else
+                <a href="{{ route('login') }}" class="block text-sm text-slate-300 hover:text-white py-2 transition-colors">Sign in</a>
+                <a href="{{ route('register') }}" class="block text-sm text-orange-400 hover:text-orange-300 py-2 font-semibold transition-colors">Get started</a>
+            @endauth
         </div>
     </header>
 
@@ -76,6 +97,12 @@
                 <a href="{{ route('blogs.index') }}">Blogs</a>
             </div>
         </div>
-    </footer>
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+        document.getElementById('mobile-menu-toggle')?.addEventListener('click', toggleMobileMenu);
+    </script>
 </body>
 </html>

@@ -24,7 +24,7 @@
     @endif
 
     <div class="section-shell flex min-h-screen items-center justify-center py-10">
-        <div class="grid w-full max-w-6xl gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+        <div class="grid w-full max-w-6xl gap-6 lg:grid-cols-[1.2fr_0.8fr]">
             <div class="glass-panel reveal hidden p-10 lg:block">
                 <span class="eyebrow">Editorial OS</span>
                 <h1 class="mt-6 text-5xl font-bold">Build a publication your readers remember.</h1>

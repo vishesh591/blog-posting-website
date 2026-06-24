@@ -2,10 +2,10 @@
 
 @section('content')
 <div class="flex items-center justify-between">
-    <h1 class="text-3xl font-bold">Blog management</h1>
+    <h1 class="text-3xl font-bold heading-gradient">Blog management</h1>
     <a href="{{ route('dashboard.blogs.create') }}" class="btn-primary">Create blog</a>
 </div>
-<div class="mt-8 overflow-hidden rounded-3xl border border-white/10">
+<div class="mt-6 overflow-hidden rounded-3xl border border-white/10">
     <table class="min-w-full text-left text-sm">
         <thead class="bg-white/5 text-slate-400">
             <tr>

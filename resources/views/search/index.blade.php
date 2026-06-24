@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="section-shell py-16">
-    <div class="glass-panel p-8">
+<section class="section-shell py-8 md:py-12">
+    <div class="glass-panel p-6 md:p-8">
         <p class="eyebrow">Global search</p>
         <h1 class="mt-4 text-4xl font-bold">Results for "{{ $query }}"</h1>
         <form class="mt-6">
@@ -10,7 +10,7 @@
             <div id="search-suggestions" class="glass-panel mt-3 hidden overflow-hidden"></div>
         </form>
     </div>
-    <div class="mt-8 grid gap-8 lg:grid-cols-3">
+    <div class="mt-6 grid gap-6 lg:grid-cols-3">
         <div class="lg:col-span-2">
             <h2 class="mb-4 text-2xl font-bold">Blogs</h2>
             <div class="space-y-4">

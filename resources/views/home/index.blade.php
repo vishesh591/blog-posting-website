@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="section-shell py-16">
-    <div class="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+<section class="section-shell py-8 md:py-12">
+    <div class="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
         <div class="reveal">
             <span class="eyebrow">Modern Publishing Platform</span>
             <h1 class="mt-6 max-w-4xl text-5xl font-bold sm:text-7xl">Write, manage, and scale content with a premium editorial workflow.</h1>
@@ -35,8 +35,8 @@
     </div>
 </section>
 
-<section class="section-shell py-10">
-    <div class="mb-8 flex items-center justify-between">
+<section class="section-shell py-6 md:py-8">
+    <div class="mb-6 flex items-center justify-between">
         <div>
             <p class="eyebrow">Featured</p>
             <h2 class="mt-4 text-3xl font-bold">Editorial picks that define the week.</h2>
@@ -49,7 +49,7 @@
     </div>
 </section>
 
-<section class="section-shell grid gap-8 py-10 lg:grid-cols-[0.7fr_1.3fr]">
+<section class="section-shell grid gap-6 py-6 md:py-8 lg:grid-cols-[0.7fr_1.3fr]">
     <div class="glass-panel p-6">
         <p class="eyebrow">Trending now</p>
         <div class="mt-6 space-y-4">
@@ -79,8 +79,8 @@
     </div>
 </section>
 
-<section class="section-shell py-10">
-    <div class="grid gap-8 lg:grid-cols-3">
+<section class="section-shell py-6 md:py-8">
+    <div class="grid gap-6 lg:grid-cols-3">
         <div class="glass-panel p-6 lg:col-span-2">
             <p class="eyebrow">Newsletter</p>
             <h2 class="mt-4 text-3xl font-bold">Stay on the pulse of product, engineering, and publishing.</h2>
