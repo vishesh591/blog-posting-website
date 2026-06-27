@@ -60,15 +60,15 @@
         <!-- Left Side: Sticky Meta (desktop only) -->
         <div class="hidden lg:block sticky top-24 space-y-6">
             <div class="glass-panel p-6 space-y-4">
-                <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Written By</p>
+                <p class="text-xs font-semibold uppercase tracking-wider text-zinc-400">Written By</p>
                 <div class="flex items-center gap-3">
-                    <img src="{{ $blog->author->avatar_url }}" alt="{{ $blog->author->name }}" class="h-10 w-10 rounded-2xl object-cover border border-white/10">
+                    <img src="{{ $blog->author->avatar_url }}" alt="{{ $blog->author->name }}" class="h-10 w-10 rounded-2xl object-cover border border-zinc-800">
                     <div>
-                        <p class="font-semibold text-slate-200 text-sm leading-tight">{{ $blog->author->name }}</p>
-                        <p class="text-xs text-slate-400 mt-1 truncate">{{ $blog->author->headline ?: 'Author' }}</p>
+                        <p class="font-semibold text-zinc-200 text-sm leading-tight">{{ $blog->author->name }}</p>
+                        <p class="text-xs text-zinc-400 mt-1 leading-normal break-words">{{ $blog->author->headline ?: 'Author' }}</p>
                     </div>
                 </div>
-                <p class="text-xs text-slate-400 leading-relaxed">{{ $blog->author->bio ?: 'An expert contributor to InkPress editorial.' }}</p>
+                <p class="text-xs text-zinc-400 leading-relaxed">{{ $blog->author->bio ?: 'An expert contributor to InkPress editorial.' }}</p>
             </div>
             
             <div class="glass-panel p-6 space-y-3">
