@@ -22,14 +22,14 @@
                 <div id="hero-search-results" class="glass-panel absolute left-0 right-0 top-16 hidden overflow-hidden"></div>
             </div>
             <div class="mt-6 grid gap-4 sm:grid-cols-2">
-                <div class="rounded-2xl bg-white/6 p-4">
-                    <p class="text-sm text-slate-400">Featured stories</p>
-                    <p class="mt-2 text-3xl font-bold">{{ $featuredBlogs->count() }}</p>
-                </div>
-                <div class="rounded-2xl bg-white/6 p-4">
-                    <p class="text-sm text-slate-400">Popular authors</p>
-                    <p class="mt-2 text-3xl font-bold">{{ $popularAuthors->count() }}</p>
-                </div>
+                <a href="{{ route('blogs.index') }}" class="rounded-2xl bg-zinc-900/30 border border-zinc-900 p-4 hover:bg-zinc-900/50 hover:border-zinc-700 transition-all duration-200 block text-left">
+                    <p class="text-sm text-zinc-400">Featured stories</p>
+                    <p class="mt-2 text-3xl font-bold text-zinc-100">{{ $featuredBlogs->count() }}</p>
+                </a>
+                <a href="#popular-authors-section" class="rounded-2xl bg-zinc-900/30 border border-zinc-900 p-4 hover:bg-zinc-900/50 hover:border-zinc-700 transition-all duration-200 block text-left">
+                    <p class="text-sm text-zinc-400">Popular authors</p>
+                    <p class="mt-2 text-3xl font-bold text-zinc-100">{{ $popularAuthors->count() }}</p>
+                </a>
             </div>
         </div>
     </div>
@@ -54,10 +54,10 @@
         <p class="eyebrow">Trending now</p>
         <div class="mt-6 space-y-4">
             @forelse ($trendingBlogs as $blog)
-                <a href="{{ route('blogs.show', $blog->slug) }}" class="block rounded-2xl border border-white/10 p-4">
-                    <p class="text-xs uppercase tracking-[0.2em] text-orange-300">{{ optional($blog->category)->name }}</p>
-                    <p class="mt-2 text-lg font-semibold">{{ $blog->title }}</p>
-                    <p class="mt-2 text-sm text-slate-400">{{ $blog->views_count }} views</p>
+                <a href="{{ route('blogs.show', $blog->slug) }}" class="block rounded-2xl border border-zinc-800 bg-zinc-900/10 hover:bg-zinc-900/50 hover:border-zinc-700 p-4 transition-all duration-200">
+                    <p class="text-xs uppercase tracking-[0.2em] text-orange-400 font-semibold">{{ optional($blog->category)->name }}</p>
+                    <p class="mt-2 text-lg font-semibold text-zinc-100">{{ $blog->title }}</p>
+                    <p class="mt-2 text-sm text-zinc-400">{{ $blog->views_count }} views</p>
                 </a>
             @empty
                 <x-empty-state title="No trending stories yet" message="Seed the platform to highlight momentum." />
@@ -89,15 +89,15 @@
                 <button type="button" class="btn-primary">Subscribe</button>
             </form>
         </div>
-        <div class="glass-panel p-6">
+        <div class="glass-panel p-6" id="popular-authors-section">
             <p class="eyebrow">Popular authors</p>
             <div class="mt-5 space-y-4">
                 @foreach ($popularAuthors as $author)
-                    <a href="{{ route('authors.show', $author->id) }}" class="flex items-center gap-4 rounded-2xl border border-white/10 p-3">
-                        <img src="{{ $author->avatar_url }}" alt="{{ $author->name }}" class="h-12 w-12 rounded-2xl object-cover">
+                    <a href="{{ route('authors.show', $author->id) }}" class="flex items-center gap-4 rounded-2xl border border-zinc-800 bg-zinc-900/10 hover:bg-zinc-900/50 hover:border-zinc-700 p-3 transition-all duration-200">
+                        <img src="{{ $author->avatar_url }}" alt="{{ $author->name }}" class="h-12 w-12 rounded-2xl object-cover border border-zinc-900">
                         <div>
-                            <p class="font-semibold">{{ $author->name }}</p>
-                            <p class="text-sm text-slate-400">{{ $author->headline ?: 'Author' }}</p>
+                            <p class="font-semibold text-zinc-100">{{ $author->name }}</p>
+                            <p class="text-sm text-zinc-400">{{ $author->headline ?: 'Author' }}</p>
                         </div>
                     </a>
                 @endforeach

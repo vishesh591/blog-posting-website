@@ -13,7 +13,7 @@
     <div class="glass-panel p-6">
         <div class="flex flex-wrap gap-3">
             @foreach ($tags as $tag)
-                <form action="{{ route('dashboard.tags.destroy', $tag) }}" method="POST" class="rounded-full border border-white/10 px-4 py-2">
+                <form action="{{ route('dashboard.tags.destroy', $tag) }}" method="POST" class="rounded-xl border border-zinc-800 bg-zinc-900/10 px-4 py-2 hover:border-zinc-700 transition-colors duration-200">
                     @csrf
                     @method('DELETE')
                     <span>#{{ $tag->name }} ({{ $tag->blogs_count }})</span>

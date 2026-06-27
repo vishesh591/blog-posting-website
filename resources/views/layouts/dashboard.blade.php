@@ -21,7 +21,7 @@
     <div id="mobile-drawer-backdrop" class="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm hidden lg:hidden" onclick="toggleMobileDrawer()"></div>
 
     <!-- Mobile Navigation Drawer -->
-    <div id="mobile-drawer" class="fixed inset-y-0 left-0 z-50 w-72 transform -translate-x-full bg-slate-950/95 border-r border-white/10 p-6 transition-transform duration-300 ease-in-out lg:hidden flex flex-col justify-between">
+    <div id="mobile-drawer" class="fixed inset-y-0 left-0 z-50 w-72 transform -translate-x-full bg-zinc-950 border-r border-zinc-900 p-6 transition-transform duration-300 ease-in-out lg:hidden flex flex-col justify-between">
         <div>
             <div class="flex items-center justify-between mb-8">
                 <a href="{{ route('dashboard.index') }}" class="flex items-center gap-3 text-lg font-bold">
@@ -86,7 +86,7 @@
     </div>
 
     <div class="flex min-h-screen">
-        <aside class="hidden w-72 shrink-0 border-r border-white/10 bg-slate-950/70 p-6 backdrop-blur-xl lg:block flex flex-col justify-between">
+        <aside class="hidden w-72 shrink-0 border-r border-zinc-900 bg-zinc-950/60 p-6 lg:block flex flex-col justify-between">
             <div>
                 <a href="{{ route('dashboard.index') }}" class="mb-8 flex items-center gap-3 text-lg font-bold">
                     <span class="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-orange-500 text-white">IP</span>
@@ -142,7 +142,7 @@
             </div>
         </aside>
         <div class="flex-1 min-w-0">
-            <header class="border-b border-white/10 bg-slate-950/70 px-4 py-4 backdrop-blur-xl sm:px-8">
+            <header class="border-b border-zinc-900 bg-zinc-950/40 px-4 py-4 sm:px-8">
                 <div class="flex items-center justify-between gap-4">
                     <div class="flex items-center gap-3">
                         <button id="mobile-drawer-toggle" class="btn-theme-toggle lg:hidden" aria-label="Open navigation menu">

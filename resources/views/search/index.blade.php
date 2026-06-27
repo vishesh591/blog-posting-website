@@ -31,10 +31,10 @@
                 </div>
             </div>
             <div class="glass-panel p-6">
-                <h3 class="text-xl font-bold">Tags</h3>
+                <h3 class="text-xl font-bold text-zinc-100">Tags</h3>
                 <div class="mt-4 flex flex-wrap gap-2">
                     @foreach ($results['tags'] as $tag)
-                        <a class="rounded-full border border-white/10 px-3 py-2 text-sm" href="{{ route('tags.show', $tag->slug) }}">#{{ $tag->name }}</a>
+                        <a class="rounded-lg border border-zinc-800 hover:border-zinc-700 bg-zinc-900/10 px-3 py-1.5 text-xs text-zinc-300 hover:text-zinc-100 hover:bg-zinc-900 transition-colors" href="{{ route('tags.show', $tag->slug) }}">#{{ $tag->name }}</a>
                     @endforeach
                 </div>
             </div>

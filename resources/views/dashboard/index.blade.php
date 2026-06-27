@@ -19,10 +19,10 @@
         <div class="space-y-4">
             @forelse ($stats['most_viewed'] as $blog)
                 @if (is_array($blog))
-                    <a href="{{ route('blogs.show', $blog['slug']) }}" class="flex items-center justify-between rounded-2xl border border-white/10 p-4 hover:border-orange-400/50 hover:bg-white/5 transition-all duration-200 block">
+                    <a href="{{ route('blogs.show', $blog['slug']) }}" class="flex items-center justify-between rounded-2xl border border-zinc-800 bg-zinc-900/10 hover:bg-zinc-900/50 hover:border-zinc-700 p-4 transition-all duration-200 block">
                         <div>
-                            <p class="font-semibold text-slate-200 hover:text-orange-400 transition-colors">{{ $blog['title'] }}</p>
-                            <p class="text-sm text-slate-400">{{ $blog['author']['name'] ?? 'Unknown' }}</p>
+                            <p class="font-semibold text-zinc-200 hover:text-orange-400 transition-colors">{{ $blog['title'] }}</p>
+                            <p class="text-sm text-zinc-400">{{ $blog['author']['name'] ?? 'Unknown' }}</p>
                         </div>
                         <div class="text-right">
                             <p class="font-semibold text-slate-200">{{ $blog['views_count'] }}</p>
@@ -45,7 +45,7 @@
                         $description = is_array($activity) ? ($activity['description'] ?? '') : ($activity->description ?? '');
                         $time = is_array($activity) ? ($activity['time'] ?? null) : ($activity->time ?? null);
                     @endphp
-                    <div class="rounded-2xl border border-white/10 p-4">
+                    <div class="rounded-2xl border border-zinc-800 bg-zinc-900/10 p-4">
                         <p class="text-sm font-semibold">{{ $label }}</p>
                         <p class="mt-1 text-sm text-slate-400">{{ $description }}</p>
                         @if ($time instanceof \Carbon\Carbon || (is_object($time) && method_exists($time, 'diffForHumans')))

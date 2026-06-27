@@ -18,7 +18,7 @@
         <span data-flash="{{ session('success') }}" class="hidden"></span>
     @endif
 
-    <header class="sticky top-0 z-40 border-b border-white/10 bg-slate-950/70 backdrop-blur-xl">
+    <header class="sticky top-0 z-40 border-b border-zinc-900 bg-zinc-950/80 backdrop-blur-xl">
         <div class="section-shell flex items-center justify-between py-4">
             <a href="{{ route('home') }}" class="flex items-center gap-3 text-lg font-bold">
                 <span class="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-orange-500 text-white">IP</span>
@@ -65,7 +65,7 @@
             </div>
         </div>
         <!-- Mobile Dropdown Navigation Menu -->
-        <div id="mobile-menu" class="hidden border-t border-white/10 bg-slate-950 px-4 py-4 space-y-2 md:hidden">
+        <div id="mobile-menu" class="hidden border-t border-zinc-900 bg-zinc-950 px-4 py-4 space-y-2 md:hidden">
             <a href="{{ route('blogs.index') }}" class="block text-sm text-slate-300 hover:text-white py-2 transition-colors">Stories</a>
             <a href="{{ route('about') }}" class="block text-sm text-slate-300 hover:text-white py-2 transition-colors">About</a>
             <a href="{{ route('contact') }}" class="block text-sm text-slate-300 hover:text-white py-2 transition-colors">Contact</a>
@@ -85,7 +85,7 @@
         @yield('content')
     </main>
 
-    <footer class="mt-20 border-t border-white/10 py-10 text-sm text-slate-400">
+    <footer class="mt-20 border-t border-zinc-900 py-10 text-sm text-zinc-400">
         <div class="section-shell flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div>
                 <p class="font-semibold text-white">InkPress</p>

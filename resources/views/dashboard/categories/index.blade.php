@@ -15,7 +15,7 @@
     <div class="glass-panel p-6">
         <div class="space-y-4">
             @foreach ($categories as $category)
-                <div class="flex items-center justify-between rounded-2xl border border-white/10 p-4">
+                <div class="flex items-center justify-between rounded-2xl border border-zinc-800 bg-zinc-900/10 p-4 hover:border-zinc-700 transition-colors duration-200">
                     <div>
                         <p class="font-semibold">{{ $category->name }}</p>
                         <p class="text-sm text-slate-400">{{ $category->blogs_count }} blogs</p>

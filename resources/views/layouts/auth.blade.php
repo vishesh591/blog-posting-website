@@ -28,7 +28,7 @@
             <div class="glass-panel reveal hidden p-10 lg:block">
                 <span class="eyebrow">Editorial OS</span>
                 <h1 class="mt-6 text-5xl font-bold">Build a publication your readers remember.</h1>
-                <p class="mt-5 max-w-xl text-lg text-slate-300">A polished SaaS-style publishing stack with workflows, analytics, media tools, and collaborative author management.</p>
+                <p class="mt-5 max-w-xl text-lg text-zinc-400">A polished SaaS-style publishing stack with workflows, analytics, media tools, and collaborative author management.</p>
             </div>
             <div class="glass-panel p-8">
                 @yield('content')
